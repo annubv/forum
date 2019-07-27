@@ -38,12 +38,45 @@
           <button
             type="button"
             class="black-btn"
-            onclick="window.location.href = './postforum.html';"
+            onclick="window.location.href = '/addforum';"
           >
             <i class="fas fa-plus"></i> New-Forum
           </button>
         </div>
       </div>
+
+      <% for (var i = forumdata.length-1 ; i>=0; i--){%>
+
+      <div class="forum-body">
+        <div class="flex-container f-box">
+          <div class="flex-container f-vert">
+            <div class="f-head"><%=forumdata[i].user%></div>
+            <div>
+              <%=forumdata[i].data%>
+            </div>
+            <div class="flex-container f-com">
+              <div>
+                <button class="com-btn">
+                  <i class="fas fa-thumbs-up"></i> <%=forumdata[i].likes%>
+                </button>
+              </div>
+              <div>
+                <button class="com-btn">
+                  <i class="fas fa-thumbs-down"></i> <%=forumdata[i].dislikes%>
+                </button>
+              </div>
+              <div>
+                <button class="com-btn">
+                  <i class="fas fa-comment"></i> <%=forumdata[i].comments%>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%}%>
+
       <div class="forum-body">
         <div class="flex-container f-box">
           <div class="flex-container f-vert">

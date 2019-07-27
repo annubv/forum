@@ -7,9 +7,22 @@ const signupuser = (req, res) => {
     if (err) {
       console.log("Error occured in creating user: " + err);
     } else {
-      req.session.user = { email, name };
-      console.log("User Added");
-      return res.redirect("/");
+      user
+        .findOne()
+        .where("email")
+        .equals(email)
+        .where("password")
+        .equals(password)
+        .populate("user")
+        .exec((err, auth) => {
+          if (err) {
+            console.log("Error occured in signing in: " + err);
+          } else {
+            console.log(auth);
+            req.session.user = { id: auth._id, name: auth.name, email };
+            return res.redirect("/");
+          }
+        });
     }
   });
 };

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forum</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="main-body">
+      <div class="flex-container">
+        <div class="flex-container f-start">
+          <div>
+            <img src="kflogo.png" alt="Konfinity logo" height="20px;" />
+          </div>
+          <div>
+            <a href="/">Konfinity Forums</a>
+          </div>
+        </div>
+        <div class="flex-container f-end">
+          <div><a href=""><%=name%></a></div>
+          <div><a href="/signout">Logout</a></div>
+        </div>
+      </div>
+      <div class="flex-container f-med f-vert">
+        <div>
+          Post a New Forum
+        </div>
+        <div>
+          <form action="/addforum" method="POST">
+            <div>
+              <textarea
+                rows="10"
+                cols="50"
+                type="text"
+                name="data"
+                id="data"
+                placeholder="Write Something.."
+                required
+              ></textarea>
+            </div>
+            <div>
+              <input class="black-btn" type="submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>Konfinity Infotech Private Limited</footer>
+</html>

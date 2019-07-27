@@ -9,8 +9,8 @@ const main = (req, res) => {
       if (err) {
         console.log("Error Occured in showing homepage: " + err);
       } else {
-        console.log(result);
-        return res.render("index", { name, posts: result.posts });
+        console.log("Post Result: " + result);
+        return res.render("index", { name, forumdata: result });
       }
     });
 };
