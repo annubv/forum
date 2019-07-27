@@ -1,0 +1,136 @@
+body {
+  background-color: #1b2631;
+  color: #ffffff;
+  font-family: "Didact Gothic";
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.main-body {
+  padding: 0rem 1.5rem 0rem 1.5rem;
+}
+
+.forum-body {
+  margin-top: 2rem;
+  padding: 0rem 1.5rem 0rem 1.5rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.f-start {
+  justify-content: flex-start;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.f-com {
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: flex-start;
+  word-spacing: 0.3rem;
+}
+
+.f-end {
+  justify-content: flex-end;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.f-med {
+  margin: 0rem 1rem 0rem 1rem;
+  font-size: 1.5rem;
+}
+
+.f-head {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.f-vert {
+  flex-direction: column;
+}
+
+.f-box {
+  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
+  text-align: justify;
+  text-justify: inter-word;
+  transition: 0.3s;
+}
+
+.f-box:hover {
+  box-shadow: 0 0 2.5rem 0.2rem rgba(12, 0, 0, 0.2);
+}
+
+.flex-container > div {
+  margin: 1rem;
+}
+
+.black-btn {
+  cursor: pointer;
+  background-color: black;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+  word-spacing: 0.3rem;
+  transition: 0.3s;
+}
+
+.com-btn {
+  font-size: 1rem;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #ffffff;
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 3rem;
+  background-color: #17202a;
+  color: white;
+  text-align: center;
+}
+
+textarea {
+  border: 0;
+  color: #ffffff;
+  background-color: #283747;
+  padding: 2rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Didact Gothic";
+  box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
+  border: 0;
+  transition: 0.18s ease-out;
+}
+
+textarea:hover {
+  box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #d0d3d4;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ecf0f1;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ecf0f1;
+}
