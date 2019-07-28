@@ -50,7 +50,7 @@
       <div class="forum-body">
         <div class="flex-container f-box">
           <div class="flex-container f-vert">
-            <div class="f-head"><%=forumdata[i].user%></div>
+            <div class="f-head"><%=forumdata[i].user_name%></div>
             <div>
               <%=forumdata[i].data%>
             </div>
@@ -66,7 +66,12 @@
                 </button>
               </div>
               <div>
-                <button class="com-btn">
+                <button
+                  class="com-btn"
+                  name="pid"
+                  value="<%=forumdata[i]._id%>"
+                  onclick="window.location.href = '/addforum';"
+                >
                   <i class="fas fa-comment"></i> <%=forumdata[i].comments%>
                 </button>
               </div>
