@@ -34,40 +34,28 @@
       <div class="forum-body">
         <div class="flex-container f-box">
           <div class="flex-container f-vert">
-            <div class="f-head">Vaishnavi</div>
+            <div class="f-head"><%=name%></div>
             <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-              repudiandae enim commodi et ipsam quis tenetur sequi amet ex
-              ducimus rerum atque, suscipit voluptatum saepe neque fuga a? Non,
-              molestias?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellat, repudiandae enim commodi et ipsam quis tenetur sequi
-              amet ex ducimus rerum atque, suscipit voluptatum saepe neque fuga
-              a? Non, molestias? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Repellat, repudiandae enim commodi et ipsam quis
-              tenetur sequi amet ex ducimus rerum atque, suscipit voluptatum
-              saepe neque fuga a? Non, molestias?Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Repellat, repudiandae enim commodi
-              et ipsam quis tenetur sequi amet ex ducimus rerum atque, suscipit
-              voluptatum saepe neque fuga a? Non, molestias?
+              <%=postdata.data%>
             </div>
             <div class="flex-container f-com">
               <div>
                 <button class="com-btn">
-                  <i class="fas fa-thumbs-up"></i> 23
+                  <i class="fas fa-thumbs-up"></i> <%=postdata.likes%>
                 </button>
               </div>
               <div>
                 <button class="com-btn">
-                  <i class="fas fa-thumbs-down"></i> 1
+                  <i class="fas fa-thumbs-down"></i> <%=postdata.dislikes%>
                 </button>
               </div>
               <div>
                 <button class="com-btn">
-                  <i class="fas fa-comment"></i> 18
+                  <i class="fas fa-comment"></i> <%=postdata.comments%>
                 </button>
               </div>
             </div>
-            <form id="commentform"></form>
+            <form id="commentform" method="POST" action="/addcomment"></form>
             <div class="flex-container f-vert f-comsec">
               <div class="grid-container">
                 <div class="grid-item-input">
@@ -77,15 +65,16 @@
                   <input
                     type="submit"
                     value="Add Comment"
-                    class="black-btn"
+                    class="comment-btn"
                     form="commentform"
                   />
                 </div>
               </div>
-              <div><strong>Anubhav </strong>: Nice comment!!</div>
-              <div><strong>Anubhav </strong>: Nice comment!!</div>
-              <div><strong>Anubhav </strong>: Nice comment!!</div>
-              <div><strong>Anubhav </strong>: Nice comment!!</div>
+
+              <%for(var j=0; j<comments.length; j++){%>
+              <div><strong><%=comments[j].user_name%></strong>: <%=comments[j].data%></div>
+              <%}%>
+
             </div>
           </div>
         </div>

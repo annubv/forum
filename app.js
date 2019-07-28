@@ -31,7 +31,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: "afsfw123dsa",
-    cookie: { maxAge: 100000000, sameSite: true }
+    cookie: { maxAge: 99999999999, sameSite: true }
   })
 );
 app.use("/", alpharoutes);

@@ -9,6 +9,7 @@ body {
 a {
   text-decoration: none;
   color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
 
 .main-body {
@@ -93,22 +94,35 @@ input:hover {
 
 .black-btn {
   cursor: pointer;
-  background-color: black;
+  background-color: #000000;
   border: none;
-  color: white;
+  color: #ffffff;
   text-align: center;
   padding: 0.8rem 1.5rem;
   word-spacing: 0.3rem;
   transition: 0.3s;
 }
 
+.black-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 .comment-btn {
   cursor: pointer;
-  background-color: black;
+  background-color: #000000;
   border: none;
-  color: white;
+  color: #ffffff;
   text-align: center;
-  padding: 0.8rem 0rem 0.8rem 0rem;
+  padding: 0.8rem 1.5rem;
+  word-spacing: 0.3rem;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.comment-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .com-btn {

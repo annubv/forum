@@ -12,10 +12,11 @@ router.route("/signin").get(middle.redirectprofile, alphacon.signin);
 router.route("/signup").get(middle.redirectprofile, alphacon.signup);
 router.route("/signout").get(middle.redirectsignin, signin.signout);
 router.route("/addforum").get(middle.redirectsignin, forum.addforumpage);
-router.route("/forumdata").get(forum.forumdata);
 
 router.route("/signin").post(signin.signinuser);
 router.route("/signup").post(signup.signupuser);
 router.route("/addforum").post(forum.addforum);
+router.route("/addcomment").post(forum.addcomment);
+router.route("/comment").post(forum.forumdata);
 
 module.exports = router;

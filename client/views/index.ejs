@@ -51,9 +51,7 @@
         <div class="flex-container f-box">
           <div class="flex-container f-vert">
             <div class="f-head"><%=forumdata[i].user_name%></div>
-            <div>
-              <%=forumdata[i].data%>
-            </div>
+            <div><%=forumdata[i].data%></div>
             <div class="flex-container f-com">
               <div>
                 <button class="com-btn">
@@ -66,11 +64,13 @@
                 </button>
               </div>
               <div>
+                <form method="post" action="/comment" id="show_comments"></form>
                 <button
+                  form="show_comments"
                   class="com-btn"
                   name="pid"
                   value="<%=forumdata[i]._id%>"
-                  onclick="window.location.href = '/addforum';"
+                  type="submit"
                 >
                   <i class="fas fa-comment"></i> <%=forumdata[i].comments%>
                 </button>
