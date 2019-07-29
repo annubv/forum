@@ -26,12 +26,15 @@ const addforum = (req, res) => {
 };
 
 const forumdata = (req, res) => {
-  const { pid } = req.body;
-  console.log("Incoming pid: " + pid);
+  const { pid } = req.query;
+  if (pid) {
+    req.session.post = { id: pid, data: null };
+  }
+  console.log("Incoming pid: " + req.session.post.id);
   posts
     .findOne()
     .where("_id")
-    .equals(pid)
+    .equals(req.session.post.id)
     .populate("posts")
     .exec((err, postsresult) => {
       if (err) {
@@ -41,18 +44,18 @@ const forumdata = (req, res) => {
         comments
           .find()
           .where("post_id")
-          .equals(pid)
+          .equals(req.session.post.id)
           .populate("comments")
           .exec((err, commentsresult) => {
             if (err) {
               console.log("Error occured in fetching comments: " + err);
             } else {
               console.log("Comments: " + commentsresult);
-              req.session.post = { pid, data: postsresult };
+              req.session.post.data = postsresult;
               console.log(req.session);
               return res.render("forumdata", {
                 name: req.session.user.name,
-                pid: pid,
+                pid: req.session.post.id,
                 postdata: postsresult,
                 comments: commentsresult
               });
@@ -69,7 +72,7 @@ const addcomment = (req, res) => {
     user_id: req.session.user.id,
     user_name: req.session.user.name,
     user_email: req.session.user.email,
-    post_id: req.session.post.pid,
+    post_id: req.session.post.id,
     data: comdata
   });
   comments_instance.save(err => {
@@ -79,7 +82,7 @@ const addcomment = (req, res) => {
       comments
         .find()
         .where("post_id")
-        .equals(req.session.post.pid)
+        .equals(req.session.post.id)
         .populate("comments")
         .exec((err, commentsresult) => {
           if (err) {
@@ -89,16 +92,11 @@ const addcomment = (req, res) => {
             console.log(
               "The details: ",
               req.session.user.name,
-              req.session.post.pid,
+              req.session.post.id,
               req.session.post.data,
               commentsresult
             );
-            return res.render("forumdata", {
-              name: req.session.user.name,
-              pid: req.session.post.pid,
-              postdata: req.session.post.data,
-              comments: commentsresult
-            });
+            return res.redirect("/comment");
           }
         });
     }
