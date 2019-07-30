@@ -54,7 +54,14 @@
             <div><%=forumdata[i].data%></div>
             <div class="flex-container f-com">
               <div>
-                <button class="com-btn">
+                <form method="post" action="/like" id="like"></form>
+                <button
+                  form="like"
+                  class="com-btn"
+                  name="like"
+                  value="<%=forumdata[i]._id%>"
+                  type="submit"
+                >
                   <i class="fas fa-thumbs-up"></i> <%=forumdata[i].likes%>
                 </button>
               </div>

@@ -40,12 +40,14 @@
             </div>
             <div class="flex-container f-com">
               <div>
-                <button class="com-btn">
+                <form method="post" action="/like" id="like"></form>
+                <button form="like" class="com-btn" value="<%=postdata._id%>" name="like" type="submit">
                   <i class="fas fa-thumbs-up"></i> <%=postdata.likes%>
                 </button>
               </div>
               <div>
-                <button class="com-btn">
+                <form method="post" action="/dislike" id="dislike"></form>
+                <button form="dislike" class="com-btn" value="<%=postdata._id%>" name="dislike" type="submit">
                   <i class="fas fa-thumbs-down"></i> <%=postdata.dislikes%>
                 </button>
               </div>

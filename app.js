@@ -14,6 +14,7 @@ var mongoose = require("mongoose");
 var mongoDB =
   "mongodb+srv://root0:root0pass@cluster0-cpolg.mongodb.net/forum_db?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.set("useFindAndModify", false);
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 

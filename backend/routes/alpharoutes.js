@@ -18,5 +18,7 @@ router.route("/signin").post(signin.signinuser);
 router.route("/signup").post(signup.signupuser);
 router.route("/addforum").post(forum.addforum);
 router.route("/comment").post(forum.addcomment);
+router.route("/like").post(forum.like);
+router.route("/dislike").post(forum.dislike);
 
 module.exports = router;
