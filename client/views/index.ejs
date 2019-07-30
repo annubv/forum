@@ -53,35 +53,16 @@
             <div class="f-head"><%=forumdata[i].user_name%></div>
             <div><%=forumdata[i].data%></div>
             <div class="flex-container f-com">
-              <div>
-                <form method="post" action="/like" id="like"></form>
-                <button
-                  form="like"
-                  class="com-btn"
-                  name="like"
-                  value="<%=forumdata[i]._id%>"
-                  type="submit"
-                >
-                  <i class="fas fa-thumbs-up"></i> <%=forumdata[i].likes%>
-                </button>
-              </div>
-              <div>
-                <button class="com-btn">
-                  <i class="fas fa-thumbs-down"></i> <%=forumdata[i].dislikes%>
-                </button>
-              </div>
-              <div>
-                <form method="get" action="/comment" id="show_comments"></form>
-                <button
-                  form="show_comments"
-                  class="com-btn"
-                  name="pid"
-                  value="<%=forumdata[i]._id%>"
-                  type="submit"
-                >
-                  <i class="fas fa-comment"></i> <%=forumdata[i].comments%>
-                </button>
-              </div>
+              <form method="get" action="/comment" id="show_comments"></form>
+              <button
+                form="show_comments"
+                class="com-btn"
+                name="pid"
+                value="<%=forumdata[i]._id%>"
+                type="submit"
+              >
+                Read Full Story
+              </button>
             </div>
           </div>
         </div>
