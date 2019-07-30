@@ -10,12 +10,13 @@ const addforumpage = (req, res) => {
 };
 
 const addforum = (req, res) => {
-  const { data } = req.body;
+  const { heading, data } = req.body;
   var posts_instance = new posts({
     user_id: req.session.user.id,
     user_name: req.session.user.name,
     user_email: req.session.user.email,
-    data
+    data,
+    heading
   });
   posts_instance.save(err => {
     if (err) {

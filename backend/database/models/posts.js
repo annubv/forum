@@ -7,6 +7,7 @@ var PostsSchema = new Schema({
   user_name: { type: String, ref: "user", required: true },
   user_email: { type: String, ref: "user", required: true },
   data: { type: String, required: true },
+  heading: { type: String, required: true },
   likes: { type: Number, default: 0 },
   dislikes: { type: Number, default: 0 },
   comments: { type: Number, default: 0 }

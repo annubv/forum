@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="flex-container f-end">
-          <div><a href=""><%=name%></a></div>
+          <div>Hello <%=name%>!</div>
           <div><a href="/signout">Signout</a></div>
         </div>
       </div>
@@ -34,7 +34,13 @@
       <div class="forum-body">
         <div class="flex-container f-box">
           <div class="flex-container f-vert">
-            <div class="f-head"><%=name%></div>
+            <div class="f-head">
+                <%=postdata.heading%>
+            </div>
+            <div>
+                By <%=postdata.user_name%> -
+                <span class="f-email"><%=postdata.user_email%></span>
+              </div>
             <div>
               <%=postdata.data%>
             </div>

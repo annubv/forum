@@ -6,10 +6,25 @@ body {
   padding: 0;
 }
 
+img {
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+
+img:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
 a {
+  position: relative;
   text-decoration: none;
   color: #ffffff;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #857f7f;
 }
 
 .main-body {
@@ -52,6 +67,12 @@ a {
 .f-head {
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+.f-email {
+  font-weight: 50;
+  font-style: italic;
+  color: #d0d3d4;
 }
 
 .f-vert {
@@ -136,6 +157,25 @@ input:hover {
   color: #ffffff;
 }
 
+.forum-btn {
+  border-radius: 2px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: 1px solid #d0d3d4;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #ffffff;
+  transition: 0.35s ease-out;
+}
+
+.forum-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 footer {
   margin-top: 3rem;
   padding: 3rem;
@@ -148,7 +188,7 @@ textarea {
   border: none;
   color: #ffffff;
   background-color: #283747;
-  padding: 2rem;
+  padding: 1.5rem;
   font-size: 1rem;
   width: 100%;
   box-sizing: border-box;
