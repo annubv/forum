@@ -96,7 +96,14 @@ const addcomment = (req, res) => {
               req.session.post.data,
               commentsresult
             );
-            return res.redirect("/comment");
+            posts
+              .findOneAndUpdate(
+                { _id: req.session.post.id },
+                { $inc: { comments: 1 } }
+              )
+              .then(() => {
+                return res.redirect("/comment");
+              });
           }
         });
     }
