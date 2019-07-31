@@ -19,16 +19,16 @@ img:hover {
 a {
   position: relative;
   text-decoration: none;
-  color: #686868;
+  color: #eeeeee;
   transition: 0.3s;
 }
 
 a:hover {
-  color: #1a1a1a;
+  color: #ad7979;
 }
 
 .main-body {
-  padding: 0rem 1.5rem 0rem 1.5rem;
+  padding: 2rem 1.5rem 0rem 1.5rem;
 }
 
 .forum-body {
@@ -37,6 +37,17 @@ a:hover {
 }
 
 .flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.cont-padded {
+  padding: 1rem;
+  background-color: #1a1a1a;
+}
+
+.flex-containersml {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -97,6 +108,10 @@ a:hover {
 
 .flex-container > div {
   margin: 1rem;
+}
+
+.flex-containersml > div {
+  margin: 1rem 0.3rem 1rem 0.3rem;
 }
 
 input[type="text"] {
@@ -187,7 +202,7 @@ input:hover {
 footer {
   margin-top: 3rem;
   padding: 3rem;
-  background-color: #575757;
+  background-color: #1a1a1a;
   color: #c2c2c2;
   text-align: center;
 }
