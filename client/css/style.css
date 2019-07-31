@@ -1,6 +1,6 @@
 body {
-  background-color: #1b2631;
-  color: #ffffff;
+  background-color: #eee;
+  color: #1b2631;
   font-family: "Didact Gothic";
   margin: 0;
   padding: 0;
@@ -19,12 +19,12 @@ img:hover {
 a {
   position: relative;
   text-decoration: none;
-  color: #ffffff;
+  color: #686868;
   transition: 0.3s;
 }
 
 a:hover {
-  color: #857f7f;
+  color: #1a1a1a;
 }
 
 .main-body {
@@ -61,7 +61,7 @@ a:hover {
 
 .f-med {
   margin: 0rem 1rem 0rem 1rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .f-head {
@@ -72,7 +72,7 @@ a:hover {
 .f-email {
   font-weight: 50;
   font-style: italic;
-  color: #d0d3d4;
+  color: #686868;
 }
 
 .f-vert {
@@ -92,7 +92,7 @@ a:hover {
 }
 
 .f-box:hover {
-  box-shadow: 0 0 1rem 0.1rem rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 1rem 0.1rem rgba(255, 0, 0, 0.2);
 }
 
 .flex-container > div {
@@ -100,8 +100,8 @@ a:hover {
 }
 
 input[type="text"] {
-  color: #ffffff;
-  background-color: #283747;
+  color: #2c2c2c;
+  background-color: #c7c4c4;
   border: none;
   padding: 0.8rem 1.5rem;
   box-shadow: inset 0px 2px 8px rgba(0, 0, 0, 0.2);
@@ -131,9 +131,9 @@ input:hover {
 
 .comment-btn {
   cursor: pointer;
-  background-color: #000000;
+  background-color: #1b2631;
   border: none;
-  color: #ffffff;
+  color: #c4c4c4;
   text-align: center;
   padding: 0.8rem 1.5rem;
   word-spacing: 0.3rem;
@@ -142,8 +142,8 @@ input:hover {
 }
 
 .comment-btn:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #c4c4c4;
+  color: #1b2631;
 }
 
 .com-btn {
@@ -154,40 +154,48 @@ input:hover {
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  color: #ffffff;
+  color: #1b2631;
+  transition: 0.3s ease-in-out;
+}
+
+.com-btn:hover {
+  color: #b8b9b9;
 }
 
 .forum-btn {
-  border-radius: 2px;
+  /* border-radius: 0.3rem; */
   padding: 0.5rem;
   font-size: 0.8rem;
   background-color: Transparent;
   background-repeat: no-repeat;
-  border: 1px solid #d0d3d4;
+  border: 1px solid #4b6177;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  color: #ffffff;
   transition: 0.35s ease-out;
 }
 
 .forum-btn:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #4b6177;
+  color: #dddddd;
 }
 
 footer {
   margin-top: 3rem;
   padding: 3rem;
-  background-color: #17202a;
-  color: white;
+  background-color: #575757;
+  color: #c2c2c2;
   text-align: center;
+}
+
+footer > a {
+  color: #c2c2c2;
 }
 
 textarea {
   border: none;
-  color: #ffffff;
-  background-color: #283747;
+  color: #2c2c2c;
+  background-color: #c7c4c4;
   padding: 1.5rem;
   font-size: 1rem;
   width: 100%;
@@ -203,18 +211,18 @@ textarea:hover {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #d0d3d4;
+  color: #7a7a7a;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #d0d3d4;
+  color: #7a7a7a;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #d0d3d4;
+  color: #7a7a7a;
 }
 
 .grid-container {
