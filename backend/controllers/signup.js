@@ -19,7 +19,13 @@ const signupuser = (req, res) => {
             console.log("Error occured in signing in: " + err);
           } else {
             console.log(auth);
-            req.session.user = { id: auth._id, name: auth.name, email };
+            req.session.user = {
+              id: auth._id,
+              name: auth.name,
+              email,
+              likes: auth.likes,
+              dislikes: auth.dislikes
+            };
             return res.redirect("/");
           }
         });

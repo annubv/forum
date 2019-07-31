@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <title>Forum</title>
@@ -47,15 +47,26 @@
             </div>
             <div class="flex-container f-com">
               <div>
+                  <%
+                    var like_class = "";
+                    var dislike_class = "";
+                    for(var x=0; x<likes.length; x++){
+                      
+                     if(likes[x].pid==pid){like_class = "btn-on";}
+                    }
+                    for(var x=0; x<dislikes.length; x++){
+                      if(dislikes[x].pid==pid){dislike_class  = "btn-on";}  
+                    }
+                  %>
                 <form method="post" action="/like" id="like"></form>
                 <button form="like" class="com-btn" value="<%=postdata._id%>" name="like" type="submit">
-                  <i class="fas fa-thumbs-up"></i> <%=postdata.likes%>
+                  <i class="fas fa-thumbs-up <%=like_class%>"></i> <%=postdata.likes%>
                 </button>
               </div>
               <div>
                 <form method="post" action="/dislike" id="dislike"></form>
                 <button form="dislike" class="com-btn" value="<%=postdata._id%>" name="dislike" type="submit">
-                  <i class="fas fa-thumbs-down"></i> <%=postdata.dislikes%>
+                  <i class="fas fa-thumbs-down <%=dislike_class%>"></i> <%=postdata.dislikes%>
                 </button>
               </div>
               <div>

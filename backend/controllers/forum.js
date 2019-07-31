@@ -53,12 +53,27 @@ const forumdata = (req, res) => {
               console.log("Error occured in fetching comments: " + err);
             } else {
               req.session.post.data = postsresult;
-              return res.render("forumdata", {
-                name: req.session.user.name,
-                pid: req.session.post.id,
-                postdata: postsresult,
-                comments: commentsresult
-              });
+              user
+                .find()
+                .where("_id")
+                .equals(req.session.user.id)
+                .populate("user")
+                .exec((err, userres) => {
+                  if (err) {
+                    console.log(
+                      "Error occured in fetching user details: " + err
+                    );
+                  } else {
+                    return res.render("forumdata", {
+                      name: req.session.user.name,
+                      pid: req.session.post.id,
+                      postdata: postsresult,
+                      comments: commentsresult,
+                      likes: userres[0].likes,
+                      dislikes: userres[0].dislikes
+                    });
+                  }
+                });
             }
           });
       }
@@ -144,7 +159,15 @@ const like = (req, res) => {
                           { $inc: { likes: 1 } }
                         )
                         .then(() => {
-                          return res.redirect("/comment");
+                          var like_this = { pid: post_id };
+                          user
+                            .update(
+                              { _id: req.session.user.id },
+                              { $push: { likes: like_this } }
+                            )
+                            .then(() => {
+                              return res.redirect("/comment");
+                            });
                         });
                     }
                   });
@@ -168,7 +191,22 @@ const like = (req, res) => {
                               { $inc: { likes: 1, dislikes: -1 } }
                             )
                             .then(() => {
-                              return res.redirect("/comment");
+                              var like_this = { pid: post_id };
+                              user
+                                .update(
+                                  { _id: req.session.user.id },
+                                  { $push: { likes: like_this } }
+                                )
+                                .then(() => {
+                                  user
+                                    .update(
+                                      { _id: req.session.user.id },
+                                      { $pull: { dislikes: like_this } }
+                                    )
+                                    .then(() => {
+                                      return res.redirect("/comment");
+                                    });
+                                });
                             });
                         });
                     }
@@ -186,7 +224,15 @@ const like = (req, res) => {
               posts
                 .findOneAndUpdate({ _id: post_id }, { $inc: { likes: -1 } })
                 .then(() => {
-                  return res.redirect("/comment");
+                  var like_this = { pid: post_id };
+                  user
+                    .update(
+                      { _id: req.session.user.id },
+                      { $pull: { likes: like_this } }
+                    )
+                    .then(() => {
+                      return res.redirect("/comment");
+                    });
                 });
             });
         }
@@ -222,6 +268,7 @@ const dislike = (req, res) => {
               if (err) {
                 console.log("Error Occured in fetching likes: " + err);
               } else {
+                console.log("likes_result:" + likes_result);
                 if (likes_result.length < 1) {
                   console.log("Not liked...");
                   var dislikes_instance = new dislikes({ post_id, user_id });
@@ -236,7 +283,15 @@ const dislike = (req, res) => {
                           { $inc: { dislikes: 1 } }
                         )
                         .then(() => {
-                          return res.redirect("/comment");
+                          var dislike_this = { pid: post_id };
+                          user
+                            .update(
+                              { _id: req.session.user.id },
+                              { $push: { dislikes: dislike_this } }
+                            )
+                            .then(() => {
+                              return res.redirect("/comment");
+                            });
                         });
                     }
                   });
@@ -260,7 +315,22 @@ const dislike = (req, res) => {
                               { $inc: { likes: -1, dislikes: 1 } }
                             )
                             .then(() => {
-                              return res.redirect("/comment");
+                              var dislike_this = { pid: post_id };
+                              user
+                                .update(
+                                  { _id: req.session.user.id },
+                                  { $push: { dislikes: dislike_this } }
+                                )
+                                .then(() => {
+                                  user
+                                    .update(
+                                      { _id: req.session.user.id },
+                                      { $pull: { likes: dislike_this } }
+                                    )
+                                    .then(() => {
+                                      return res.redirect("/comment");
+                                    });
+                                });
                             });
                         });
                     }
@@ -278,7 +348,15 @@ const dislike = (req, res) => {
               posts
                 .findOneAndUpdate({ _id: post_id }, { $inc: { dislikes: -1 } })
                 .then(() => {
-                  return res.redirect("/comment");
+                  var dislike_this = { pid: post_id };
+                  user
+                    .update(
+                      { _id: req.session.user.id },
+                      { $pull: { dislikes: dislike_this } }
+                    )
+                    .then(() => {
+                      return res.redirect("/comment");
+                    });
                 });
             });
         }

@@ -168,7 +168,7 @@ input:hover {
   font-size: 0.8rem;
   background-color: Transparent;
   background-repeat: no-repeat;
-  border: 1px solid #4b6177;
+  border: 1px solid #494949;
   cursor: pointer;
   overflow: hidden;
   outline: none;
@@ -176,8 +176,12 @@ input:hover {
 }
 
 .forum-btn:hover {
-  background-color: #4b6177;
+  background-color: #494949;
   color: #dddddd;
+}
+
+.btn-on {
+  color: #2689ec;
 }
 
 footer {
