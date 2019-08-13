@@ -4,7 +4,7 @@
   "description": "Forum App",
   "main": "app.js",
   "scripts": {
-    "app": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "github.com/annubv",
   "license": "ISC",
