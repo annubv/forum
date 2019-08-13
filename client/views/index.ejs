@@ -1,74 +1,96 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Forum</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Chorus Forums</title>
     <link
       href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Ma+Shan+Zheng&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-
-  <body>
-    <div class="flex-container cont-padded">
-      <div class="flex-containersml f-start">
-        <div class="smalldiv">
-          <a href="/"
-            ><img src="kflogo.png" alt="Konfinity logo" height="20px;"
-          /></a>
-        </div>
-        <div class="smalldiv">
-          <a href="/">Konfinity Forums</a>
-        </div>
-      </div>
-      <div class="flex-container f-end">
-        <div><a>Hello <%=name%>!</a></div>
-        <div><a href="/addforum">Post a new Forum</a></div>
-        <div><a href="/signout">Signout</a></div>
-      </div>
-    </div>
-    <div class="main-body">
-      <div class="flex-container f-med">
+  <body class="index-body">
+    <div class="content">
+      <header>
         <div>
-          Latest Forums
+          <a href="/">Chorus Forums</a>
         </div>
+        <nav>
+          <a href="#" class="hide-desktop">
+            <i class="fas fa-bars" id="menu"></i>
+          </a>
+          <ul class="show-desktop hide-mobile" id="nav">
+            <li id="exit" class="exit-btn hide-desktop">
+              <button><i class="far fa-times-circle"></i></button>
+            </li>
+            <li><a href="/profile">Hello <%=name%>!</a></li>
+            <li><a href="/addforum">Post a new Forum</a></li>
+            <li><a href="/signout">Sign Out</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="content-heading">
+        Latest Forums
       </div>
+      <div class="content-container">
+        <% for (var i = forumdata.length-1 ; i>=0; i--){%>
 
-      <% for (var i = forumdata.length-1 ; i>=0; i--){%>
-
-      <div class="forum-body">
-        <div class="flex-container f-box">
-          <div class="flex-container f-vert">
-            <div class="f-head">
-              <%=forumdata[i].heading%>
-            </div>
-            <div>
-              By <%=forumdata[i].user_name%> -
-              <span class="f-email"><%=forumdata[i].user_email%></span>
-            </div>
-            <div class="flex-container f-com">
-              <form method="get" action="/comment" id="show_comments"></form>
-              <button
-                form="show_comments"
-                class="forum-btn"
-                name="pid"
-                value="<%=forumdata[i]._id%>"
-                type="submit"
-              >
-                Read Full Story
-              </button>
-            </div>
+        <div class="forum-box">
+          <div class="forum-head">
+            <%=forumdata[i].heading%>
+          </div>
+          <div class="forum-poster">
+            By <%=forumdata[i].user_name%> -
+            <span class="forum-email"><%=forumdata[i].user_email%></span>
+          </div>
+          <div class="forum-details">
+            <form method="get" action="/comment" id="show_comments"></form>
+            <button
+              class="forum-data-button"
+              form="show_comments"
+              name="pid"
+              value="<%=forumdata[i]._id%>"
+              type="submit"
+            >
+              Read Full Story
+            </button>
           </div>
         </div>
-      </div>
 
-      <%}%>
+        <%}%>
+      </div>
     </div>
-    <footer><a href="https://annubv.github.io">About the developer</a></footer>
+    <footer>
+      Developed with <i class="fas fa-heart"></i> by
+      <a href="https://github.com/annubv" target="_blank"> Anubhav</a>
+    </footer>
+    <script>
+      var menu = document.getElementById("menu");
+      var nav = document.getElementById("nav");
+      var exit = document.getElementById("exit");
+      menu.addEventListener("click", e => {
+        nav.classList.toggle("hide-mobile");
+        e.preventDefault();
+      });
+      exit.addEventListener("click", e => {
+        nav.classList.toggle("hide-mobile");
+        e.preventDefault();
+      });
+      function blog(i) {
+        window.location = "/blog?id=" + i;
+      }
+    </script>
   </body>
 </html>

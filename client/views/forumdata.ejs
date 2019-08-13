@@ -1,105 +1,154 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Forum</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Chorus Forums</title>
     <link
       href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Ma+Shan+Zheng&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-
-  <body>
-      <div class="flex-container cont-padded">
-          <div class="flex-containersml f-start">
-            <div class="smalldiv">
-              <a href="/"
-                ><img src="kflogo.png" alt="Konfinity logo" height="20px;"
-              /></a>
-            </div>
-            <div class="smalldiv">
-              <a href="/">Konfinity Forums</a>
-            </div>
-          </div>
-          <div class="flex-container f-end">
-            <div><a>Hello <%=name%>!</a></div>
-            <div><a href="/addforum">Post a new Forum</a></div>
-            <div><a href="/signout">Signout</a></div>
-          </div>
+  <body class="index-body">
+    <div class="content">
+      <header>
+        <div>
+          <a href="/">Chorus Forums</a>
         </div>
-    <div class="main-body">
-      <div class="forum-body">
-        <div class="flex-container f-box">
-          <div class="flex-container f-vert">
-            <div class="f-head">
-                <%=postdata.heading%>
+        <nav>
+          <a href="#" class="hide-desktop">
+            <i class="fas fa-bars" id="menu"></i>
+          </a>
+          <ul class="show-desktop hide-mobile" id="nav">
+            <li id="exit" class="exit-btn hide-desktop">
+              <button><i class="far fa-times-circle"></i></button>
+            </li>
+            <li><a href="/profile">Hello <%=name%>!</a></li>
+            <li><a href="/addforum">Post a new Forum</a></li>
+            <li><a href="/signout">Sign Out</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="content-container">
+        <div class="forum-box">
+          <div class="main-forum-head">
+            <%=postdata.heading%>
+          </div>
+          <div class="forum-poster">
+            By <%=postdata.user_name%> -
+            <span class="forum-email"><%=postdata.user_email%></span>
+          </div>
+          <div class="forum-content">
+            <%=postdata.data%>
+          </div>
+          <div class="like-section">
+            <div>
+
+                <%
+                var like_class = "";
+                var dislike_class = "";
+                for(var x=0; x<likes.length; x++){
+                  
+                if(likes[x].pid==pid){like_class = "btn-on";}
+                }
+                for(var x=0; x<dislikes.length; x++){
+                  if(dislikes[x].pid==pid){dislike_class  = "btn-on";}  
+                }
+              %>
+
+              <form method="post" action="/like" id="like"></form>
+              <button
+                form="like"
+                class="com-btn"
+                value="<%=postdata._id%>"
+                name="like"
+                type="submit"
+              >
+                <i class="fas fa-thumbs-up <%=like_class%>"></i>
+                <%=postdata.likes%>
+              </button>
             </div>
             <div>
-                By <%=postdata.user_name%> -
-                <span class="f-email"><%=postdata.user_email%></span>
-              </div>
+              <form method="post" action="/dislike" id="dislike"></form>
+              <button
+                form="dislike"
+                class="com-btn"
+                value="<%=postdata._id%>"
+                name="dislike"
+                type="submit"
+              >
+                <i class="fas fa-thumbs-down <%=dislike_class%>"></i>
+                <%=postdata.dislikes%>
+              </button>
+            </div>
+          </div>
+          <form
+          
+            id="commentform"
+            method="POST"
+            action="/comment"
+            class="add-comment"
+          >
+            <input
+              type="text"
+              name="comdata"
+              form="commentform"
+              placeholder="Write a comment"
+            />
+            <input
+              type="submit"
+              value="Add Comment"
+              class="comment-btn"
+              form="commentform"
+            />
+          </form>
+          <div class="comment-section">
+
+            <%for(var j=0; j<comments.length; j++){%>
+
             <div>
-              <%=postdata.data%>
+              <strong><%=comments[j].user_name%></strong> :
+              <span
+                ><%=comments[j].data%></span
+              >
             </div>
-            <div class="flex-container f-com">
-              <div>
-                  <%
-                    var like_class = "";
-                    var dislike_class = "";
-                    for(var x=0; x<likes.length; x++){
-                      
-                     if(likes[x].pid==pid){like_class = "btn-on";}
-                    }
-                    for(var x=0; x<dislikes.length; x++){
-                      if(dislikes[x].pid==pid){dislike_class  = "btn-on";}  
-                    }
-                  %>
-                <form method="post" action="/like" id="like"></form>
-                <button form="like" class="com-btn" value="<%=postdata._id%>" name="like" type="submit">
-                  <i class="fas fa-thumbs-up <%=like_class%>"></i> <%=postdata.likes%>
-                </button>
-              </div>
-              <div>
-                <form method="post" action="/dislike" id="dislike"></form>
-                <button form="dislike" class="com-btn" value="<%=postdata._id%>" name="dislike" type="submit">
-                  <i class="fas fa-thumbs-down <%=dislike_class%>"></i> <%=postdata.dislikes%>
-                </button>
-              </div>
-              <div>
-                  <i class="fas fa-comment"></i> <%=postdata.comments%>
-              </div>
-            </div>
-            <form id="commentform" method="POST" action="/comment"></form>
-            <div class="flex-container f-vert f-comsec">
-              <div class="grid-container">
-                <div class="grid-item-input">
-                  <input type="text" name="comdata" form="commentform" placeholder="Write a comment"/>
-                </div>
-                <div class="grid-item-btn">
-                  <input
-                    type="submit"
-                    value="Add Comment"
-                    class="comment-btn"
-                    form="commentform"
-                  />
-                </div>
-              </div>
-
-              <%for(var j=0; j<comments.length; j++){%>
-              <div><strong><%=comments[j].user_name%></strong>: <%=comments[j].data%></div>
-              <%}%>
-
-            </div>
+            <%}%>
+            
           </div>
         </div>
       </div>
     </div>
+    <footer>
+      Developed with <i class="fas fa-heart"></i> by
+      <a href="https://github.com/annubv" target="_blank"> Anubhav</a>
+    </footer>
+    <script>
+      var menu = document.getElementById("menu");
+      var nav = document.getElementById("nav");
+      var exit = document.getElementById("exit");
+      menu.addEventListener("click", e => {
+        nav.classList.toggle("hide-mobile");
+        e.preventDefault();
+      });
+      exit.addEventListener("click", e => {
+        nav.classList.toggle("hide-mobile");
+        e.preventDefault();
+      });
+      function blog(i) {
+        window.location = "/blog?id=" + i;
+      }
+    </script>
   </body>
-  <footer><a href="https://annubv.github.io">About the developer</a></footer>
 </html>
- 

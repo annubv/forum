@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forum</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="flex-container cont-padded">
+      <div class="flex-containersml f-start">
+        <div class="smalldiv">
+          <a href="/"
+            ><img src="kflogo.png" alt="Konfinity logo" height="20px;"
+          /></a>
+        </div>
+        <div class="smalldiv">
+          <a href="/">Konfinity Forums</a>
+        </div>
+      </div>
+      <div class="flex-container f-end">
+        <div><a>Hello <%=name%>!</a></div>
+        <div><a href="/addforum">Post a new Forum</a></div>
+        <div><a href="/signout">Signout</a></div>
+      </div>
+    </div>
+    <div class="main-body">
+      <div class="flex-container f-med">
+        <div>
+          Latest Forums
+        </div>
+      </div>
+
+      <% for (var i = forumdata.length-1 ; i>=0; i--){%>
+
+      <div class="forum-body">
+        <div class="flex-container f-box">
+          <div class="flex-container f-vert">
+            <div class="f-head">
+              <%=forumdata[i].heading%>
+            </div>
+            <div>
+              By <%=forumdata[i].user_name%> -
+              <span class="f-email"><%=forumdata[i].user_email%></span>
+            </div>
+            <div class="flex-container f-com">
+              <form method="get" action="/comment" id="show_comments"></form>
+              <button
+                form="show_comments"
+                class="forum-btn"
+                name="pid"
+                value="<%=forumdata[i]._id%>"
+                type="submit"
+              >
+                Read Full Story
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%}%>
+    </div>
+    <footer><a href="https://annubv.github.io">About the developer</a></footer>
+  </body>
+</html>

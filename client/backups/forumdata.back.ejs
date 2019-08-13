@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>Forum</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+      <div class="flex-container cont-padded">
+          <div class="flex-containersml f-start">
+            <div class="smalldiv">
+              <a href="/"
+                ><img src="kflogo.png" alt="Konfinity logo" height="20px;"
+              /></a>
+            </div>
+            <div class="smalldiv">
+              <a href="/">Konfinity Forums</a>
+            </div>
+          </div>
+          <div class="flex-container f-end">
+            <div><a>Hello <%=name%>!</a></div>
+            <div><a href="/addforum">Post a new Forum</a></div>
+            <div><a href="/signout">Signout</a></div>
+          </div>
+        </div>
+    <div class="main-body">
+      <div class="forum-body">
+        <div class="flex-container f-box">
+          <div class="flex-container f-vert">
+            <div class="f-head">
+                <%=postdata.heading%>
+            </div>
+            <div>
+                By <%=postdata.user_name%> -
+                <span class="f-email"><%=postdata.user_email%></span>
+              </div>
+            <div>
+              <%=postdata.data%>
+            </div>
+            <div class="flex-container f-com">
+              <div>
+                  <%
+                    var like_class = "";
+                    var dislike_class = "";
+                    for(var x=0; x<likes.length; x++){
+                      
+                     if(likes[x].pid==pid){like_class = "btn-on";}
+                    }
+                    for(var x=0; x<dislikes.length; x++){
+                      if(dislikes[x].pid==pid){dislike_class  = "btn-on";}  
+                    }
+                  %>
+                <form method="post" action="/like" id="like"></form>
+                <button form="like" class="com-btn" value="<%=postdata._id%>" name="like" type="submit">
+                  <i class="fas fa-thumbs-up <%=like_class%>"></i> <%=postdata.likes%>
+                </button>
+              </div>
+              <div>
+                <form method="post" action="/dislike" id="dislike"></form>
+                <button form="dislike" class="com-btn" value="<%=postdata._id%>" name="dislike" type="submit">
+                  <i class="fas fa-thumbs-down <%=dislike_class%>"></i> <%=postdata.dislikes%>
+                </button>
+              </div>
+              <div>
+                  <i class="fas fa-comment"></i> <%=postdata.comments%>
+              </div>
+            </div>
+            <form id="commentform" method="POST" action="/comment"></form>
+            <div class="flex-container f-vert f-comsec">
+              <div class="grid-container">
+                <div class="grid-item-input">
+                  <input type="text" name="comdata" form="commentform" placeholder="Write a comment"/>
+                </div>
+                <div class="grid-item-btn">
+                  <input
+                    type="submit"
+                    value="Add Comment"
+                    class="comment-btn"
+                    form="commentform"
+                  />
+                </div>
+              </div>
+
+              <%for(var j=0; j<comments.length; j++){%>
+              <div><strong><%=comments[j].user_name%></strong>: <%=comments[j].data%></div>
+              <%}%>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer><a href="https://annubv.github.io">About the developer</a></footer>
+</html>
+ 

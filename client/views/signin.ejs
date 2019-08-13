@@ -1,50 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Login</title>
-
-    <!-- Bootstrap core CSS -->
+    <title>Chorus Forums</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
     />
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="text-center">
-    <form class="form-signin" method="POST" action="/signin">
-      <img class="mb-4" src="sign.svg" alt="" width="250" height="250" />
-      <h1 class="h3 mb-3 font-weight-normal">Please Log in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input
-        type="email"
-        name="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Email address"
-        required
-        autofocus
-      />
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Password"
-        required
-      />
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Log in
-      </button>
-      <p class="mt-5 mb-3 text-muted">&copy; What's that?</p>
-    </form>
+  <body>
+    <div class="content">
+      <header>
+        <div>
+          <a href="/">Chorus Forums</a>
+        </div>
+        <a class="sign" href="/signup">Signup</a>
+      </header>
+      <div class="login-container">
+        <div>
+          <img src="auth.svg" alt="signin" />
+        </div>
+        <h1>Welcome Back!</h1>
+        <form method="POST" action="/signin">
+          <div>
+            <div>
+              <input
+                class="form-ip"
+                type="email"
+                name="email"
+                placeholder="Enter email"
+              />
+            </div>
+            <div>
+              <input
+                class="form-ip"
+                type="password"
+                name="password"
+                placeholder="Enter password"
+              />
+            </div>
+            <div><input class="form-btn" type="submit" value="Submit" /></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer>
+      Developed with <i class="fas fa-heart"></i> by
+      <a href="https://github.com/annubv" target="_blank"> Anubhav</a>
+    </footer>
   </body>
 </html>
