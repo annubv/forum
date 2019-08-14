@@ -113,7 +113,7 @@ p {
 }
 
 .content-heading {
-  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px 0rem rgba(0, 0, 0, 0.2);
   color: rgb(248, 248, 248);
   background-color: #53705e;
   padding: 0.2rem 1rem;
@@ -127,28 +127,28 @@ p {
   background-color: rgb(248, 248, 248);
   display: grid;
   grid-template-columns: 70% 30%;
-  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px 0rem rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  padding: 2rem;
+  padding: 1.2rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
 .content-container .forum-box:hover {
-  box-shadow: 0 0 1rem 0.1rem #82c7a2;
+  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
 }
 
 .content-container .forum-box .forum-head {
+  padding: 0;
+  font-size: 1rem;
   font-family: "Ma Shan Zheng", cursive;
   color: #2f4639;
-  font-size: 1.6rem;
-  padding: 0.5rem 0;
   line-height: 1.6rem;
 }
 
 .content-container .forum-box .forum-poster {
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding: 0.5rem 0;
 }
 
@@ -159,10 +159,11 @@ p {
 }
 
 .content-container .forum-box .forum-details {
-  padding: 0.5rem 0;
+  padding: 0;
 }
 
 .content-container .forum-box .forum-details .forum-data-button {
+  display: none;
   padding: 0.5rem;
   font-size: 0.8rem;
   background-color: Transparent;
@@ -327,8 +328,8 @@ p {
 /* NavBar */
 
 header {
-  background-color: #747b81;
-  box-shadow: 0 0 1rem 0.1rem #242424b7;
+  background-color: #eee;
+  box-shadow: 0 0 1px 0rem #242424b7;
   padding: 0.8rem;
   display: flex;
   justify-content: space-between;
@@ -337,13 +338,12 @@ header {
 
 header a {
   font-family: "Abril Fatface", cursive;
-  color: #eee;
+  color: #4f7e65;
   transition: 0.3s;
-  font-weight: 100;
 }
 
 header a:hover {
-  color: #ccf8e4;
+  color: #eb515188;
 }
 
 header nav ul {
@@ -403,6 +403,7 @@ header div img {
 
 /* Footer */
 footer {
+  font-size: 0.8rem;
   flex-shrink: 0;
   padding: 1.5rem;
   background-color: #1b2631;
@@ -471,7 +472,7 @@ footer i {
   }
 
   header nav ul li a {
-    color: #eee;
+    color: #4f7e65;
     background-color: inherit;
     text-align: center;
     padding: 0;
@@ -480,7 +481,7 @@ footer i {
   }
 
   header nav ul li a:hover {
-    color: #ccf8e4;
+    color: #eb515188;
     background-color: inherit;
   }
 
@@ -490,5 +491,35 @@ footer i {
 
   .login-container .form-btn {
     width: 40%;
+  }
+}
+
+@media only screen and (min-width: 470px) {
+  .content-container .forum-box {
+    padding: 2rem;
+  }
+
+  .content-container .forum-box .forum-head {
+    font-size: 1.6rem;
+    padding: 0.5rem 0;
+  }
+
+  .content-container .forum-box .forum-poster {
+    font-size: 1rem;
+  }
+
+  .content-container a {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .content-container .forum-box .forum-details .forum-data-button {
+    pointer-events: all;
+    cursor: pointer;
+    display: block;
+  }
+
+  .content-container .forum-box .forum-details {
+    padding: 0.5rem 0;
   }
 }
