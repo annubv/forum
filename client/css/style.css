@@ -10,6 +10,17 @@ body {
   line-height: 1.6rem;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #2f4639 inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #eee !important;
+}
+
 .far {
   vertical-align: middle;
 }
@@ -113,33 +124,55 @@ p {
 }
 
 .content-heading {
+  font-size: 0.5rem;
   box-shadow: 0 0 1px 0rem rgba(0, 0, 0, 0.2);
   color: rgb(248, 248, 248);
   background-color: #53705e;
-  padding: 0.2rem 1rem;
+  padding: 0.1rem 1rem;
   margin: 2rem 1rem 0rem 1rem;
   font-weight: bold;
-  font-size: 0.8rem;
+  border-radius: 1rem;
 }
 
-.content-container .forum-box {
+.content-container .forum-card {
   margin: 1rem 0 0 0;
   background-color: rgb(248, 248, 248);
-  display: grid;
-  grid-template-columns: 70% 30%;
-  box-shadow: 0 0 1px 0rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  padding: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  vertical-align: middle;
+}
+
+.content-container .forum-card:hover {
+  box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+.content-container .forum-card .dp-container {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  padding: 0.3rem 0 0 0.3rem;
+}
+
+.content-container .forum-card .dp-container .dp {
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 57px;
+}
+
+.content-container .forum-card .forum-container {
+  margin-left: 1.5rem;
+  padding: 0rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.content-container .forum-box:hover {
-  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
-}
-
-.content-container .forum-box .forum-head {
+.content-container .forum-card .forum-container .forum-head {
   padding: 0;
   font-size: 1rem;
   font-family: "Ma Shan Zheng", cursive;
@@ -147,22 +180,26 @@ p {
   line-height: 1.6rem;
 }
 
-.content-container .forum-box .forum-poster {
-  font-size: 0.8rem;
-  padding: 0.5rem 0;
+.content-container .forum-card .forum-container .forum-poster {
+  font-size: 0.5rem;
+  padding: 0.3rem 0;
 }
 
-.content-container .forum-box .forum-poster .forum-email {
+.content-container .forum-card .forum-container .forum-poster .forum-email {
   font-weight: 50;
   font-style: italic;
   color: #686868;
 }
 
-.content-container .forum-box .forum-details {
+.content-container .forum-card .forum-container .forum-details {
   padding: 0;
 }
 
-.content-container .forum-box .forum-details .forum-data-button {
+.content-container
+  .forum-card
+  .forum-container
+  .forum-details
+  .forum-data-button {
   display: none;
   padding: 0.5rem;
   font-size: 0.8rem;
@@ -175,18 +212,40 @@ p {
   transition: 0.35s ease-in-out;
 }
 
-.content-container .forum-box .forum-details .forum-data-button:hover {
+.content-container
+  .forum-card
+  .forum-container
+  .forum-details
+  .forum-data-button:hover {
   background-color: #494949;
   color: #eee;
 }
 
-/* .content-container .forum-box .forum-box-img {
+/* .content-container .forum-card .forum-container .forum-card .forum-container-img {
   transform: skewX(-40deg);
 } */
 
 /* Index page end*/
 
 /* blog-section */
+
+.content-container .forum-box {
+  margin: 1rem 0 0 0;
+  background-color: rgb(248, 248, 248);
+  display: grid;
+  grid-template-columns: 70% 30%;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.content-container .forum-box:hover {
+  box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 0, 0.2);
+}
 
 .content-container .forum-box .main-forum-head {
   font-family: "Ma Shan Zheng", cursive;
@@ -495,16 +554,16 @@ footer i {
 }
 
 @media only screen and (min-width: 470px) {
-  .content-container .forum-box {
-    padding: 2rem;
+  .content-heading {
+    font-size: 0.8rem;
   }
 
-  .content-container .forum-box .forum-head {
+  .content-container .forum-card .forum-container .forum-head {
     font-size: 1.6rem;
     padding: 0.5rem 0;
   }
 
-  .content-container .forum-box .forum-poster {
+  .content-container .forum-card .forum-container .forum-poster {
     font-size: 1rem;
   }
 
@@ -513,13 +572,18 @@ footer i {
     cursor: default;
   }
 
-  .content-container .forum-box .forum-details .forum-data-button {
+  .content-container
+    .forum-card
+    .forum-container
+    .forum-details
+    .forum-data-button {
     pointer-events: all;
     cursor: pointer;
     display: block;
+    border-radius: 0.5rem;
   }
 
-  .content-container .forum-box .forum-details {
+  .content-container .forum-card .forum-container .forum-details {
     padding: 0.5rem 0;
   }
 }
