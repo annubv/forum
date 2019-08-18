@@ -423,6 +423,74 @@ p {
 
 /* blog-section end */
 
+/* profile section */
+.profile {
+  text-align: center;
+}
+
+.profile .profileimage {
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.profile .profilename {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.profile .profilemail {
+  color: #2c2c2c85;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.profile .custom-file-upload {
+  padding: 0.5rem;
+  color: #4f7e65;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.18s ease-out;
+  width: 200px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.116);
+}
+
+.profile .custom-file-upload:hover {
+  background-color: #4f7e65;
+  color: #eee;
+}
+
+.profile .upload {
+  font-weight: bold;
+  margin-top: 1rem;
+  box-shadow: 0 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.116);
+  padding: 0.5rem;
+  color: #4f7e65;
+  background-color: white;
+  border: 0px transparent;
+  border-radius: 10px;
+  transition: 0.18s ease-out;
+  width: 137px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.profile .upload:hover {
+  background-color: #4f7e65;
+  color: #eee;
+}
+/* profile section end */
+
 /* NavBar */
 
 header {
@@ -642,5 +710,10 @@ footer i {
 
   .content-container .forum-card .forum-container .forum-details {
     padding: 0.5rem 0;
+  }
+
+  .profile .profileimage {
+    width: 220px;
+    height: 220px;
   }
 }

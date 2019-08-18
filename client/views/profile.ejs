@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Chorus Forums</title>
+    <title>Blogs</title>
     <link
       href="https://fonts.googleapis.com/css?family=Didact Gothic"
       rel="stylesheet"
@@ -36,18 +36,41 @@
               <button><i class="far fa-times-circle"></i></button>
             </li>
             <li><a href="/profile">Hello <%=name%>!</a></li>
-            <li><a href="/">Go to Home</a></li>
+            <li><a href="/addforum">Post a new Forum</a></li>
             <li><a href="/signout">Sign Out</a></li>
           </ul>
         </nav>
       </header>
       <div class="content-container">
         <div class="forum-box">
-          <form action="/dp" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" />
-            <input class="form-btn" type="submit" value="Submit" />
-          </form>
-          <img src="<%=image_url%>" alt="profileimage" />
+          <div class="profile">
+            <img src="<%=image_url%>" alt="profileimage" class="profileimage" />
+            <div class="profilename"><%=name%></div>
+            <div class="profilemail"><%=email%></div>
+            <form
+              action="/dp"
+              method="post"
+              enctype="multipart/form-data"
+              class="dpform"
+              id="dp"
+            ></form>
+            <div>
+              <label form="dp" for="file-upload" class="custom-file-upload">
+                Choose Profile Pic
+              </label>
+              <input
+                form="dp"
+                id="file-upload"
+                type="file"
+                name="image"
+                class="selection"
+                required
+              />
+            </div>
+            <div>
+              <input form="dp" class="upload" type="submit" value="UPLOAD" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
