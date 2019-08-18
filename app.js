@@ -52,8 +52,8 @@ app.set("view engine", "ejs");
 
 /* Port Configuration */
 
-app.set("port", process.env.PORT || 8800);
+app.set("port", process.env.PORT);
 
 app.listen(app.get("port"), () => {
-  console.log("App running on port" + app.get("port"));
+  console.log("App Running at " + "http://localhost:" + app.get("port"));
 });

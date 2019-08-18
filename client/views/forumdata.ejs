@@ -43,13 +43,24 @@
       </header>
       <div class="content-container">
         <div class="forum-box">
-          <div class="main-forum-head">
-            <%=postdata.heading%>
-          </div>
-          <div class="forum-poster">
-            By <%=postdata.user_id.name%> -
-            <span class="forum-email"><%=postdata.user_id.email%></span>
-          </div>
+
+            <div class="forum-header-box">
+                <div class="forum-header-image">
+                  <img src="<%=postdata.user_id.profileimage.url%>" alt="" class="dp-image" />
+                </div>
+    
+                <div class="forum-header-poster">
+                  <div class="main-forum-head">
+                      <%=postdata.heading%>
+                  </div>
+                  <div class="main-forum-poster">
+                    By <%=postdata.user_id.name%> -
+                    <span class="main-forum-email"><%=postdata.user_id.email%></span>
+                  </div>
+                </div>
+              </div>
+
+         
           <div class="forum-content">
             <%=postdata.data%>
           </div>

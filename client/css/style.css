@@ -161,7 +161,9 @@ p {
 .content-container .forum-card .dp-container .dp {
   border-radius: 50%;
   vertical-align: middle;
+  object-fit: cover;
   width: 57px;
+  height: 57px;
 }
 
 .content-container .forum-card .forum-container {
@@ -247,12 +249,47 @@ p {
   box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 0, 0.2);
 }
 
+.content-container .forum-box .forum-header-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.content-container .forum-box .forum-header-box .forum-header-image {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  padding: 0.3rem 0 0 0.3rem;
+}
+
+.content-container .forum-box .forum-header-box .forum-header-image .dp-image {
+  border-radius: 50%;
+  vertical-align: middle;
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+}
+
 .content-container .forum-box .main-forum-head {
+  margin-left: 1rem;
   font-family: "Ma Shan Zheng", cursive;
   color: #2f4639;
-  font-size: 2rem;
   padding: 0.5rem 0;
-  line-height: 2.2rem;
+  font-size: 1rem;
+}
+
+.content-container .forum-box .main-forum-poster {
+  margin-left: 1rem;
+  font-weight: 50;
+  color: #686868;
+  font-size: 0.8rem;
+}
+
+.content-container .forum-box .main-forum-poster .main-forum-email {
+  font-weight: 50;
+  font-style: italic;
+  color: #686868;
+  font-size: 0.8rem;
 }
 
 .content-container .forum-box .forum-content {
@@ -260,6 +297,8 @@ p {
   padding: 1rem 0rem;
   text-align: justify;
   border-top: 1px solid #1a1a1a;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
 }
 
 .content-container .forum-box .like-section {
@@ -554,6 +593,24 @@ footer i {
 }
 
 @media only screen and (min-width: 470px) {
+  .content-container .forum-box .main-forum-poster {
+    font-size: 1rem;
+  }
+
+  .content-container .forum-box .main-forum-poster .main-forum-email {
+    font-size: 1rem;
+  }
+
+  .content-container .forum-box .forum-content {
+    line-height: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .content-container .forum-box .main-forum-head {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+
   .content-heading {
     font-size: 0.8rem;
   }
