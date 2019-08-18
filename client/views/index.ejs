@@ -50,15 +50,19 @@
         <a href="/comment?pid=<%=forumdata[i]._id%>" class="phone-only">
           <div class="forum-card">
             <div class="dp-container">
-              <img src="/profileimages/defimg.jpg" alt="" class="dp" />
+              <img
+                src="<%=forumdata[i].user_id.profileimage.url%>"
+                alt=""
+                class="dp"
+              />
             </div>
             <div class="forum-container">
               <div class="forum-head">
                 <%=forumdata[i].heading%>
               </div>
               <div class="forum-poster">
-                By <%=forumdata[i].user_name%> -
-                <span class="forum-email"><%=forumdata[i].user_email%></span>
+                By <%=forumdata[i].user_id.name%> -
+                <span class="forum-email"><%=forumdata[i].user_id.email%></span>
               </div>
               <div class="forum-details">
                 <button

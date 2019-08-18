@@ -47,8 +47,8 @@
             <%=postdata.heading%>
           </div>
           <div class="forum-poster">
-            By <%=postdata.user_name%> -
-            <span class="forum-email"><%=postdata.user_email%></span>
+            By <%=postdata.user_id.name%> -
+            <span class="forum-email"><%=postdata.user_id.email%></span>
           </div>
           <div class="forum-content">
             <%=postdata.data%>
@@ -119,7 +119,7 @@
             <%for(var j=0; j<comments.length; j++){%>
 
             <div>
-              <strong><%=comments[j].user_name%></strong> :
+              <strong><%=comments[j].user_id.name%></strong> :
               <span
                 ><%=comments[j].data%></span
               >

@@ -4,7 +4,7 @@ const main = (req, res) => {
   const name = req.session.user.name;
   posts
     .find()
-    .populate("posts")
+    .populate("user_id")
     .exec((err, result) => {
       if (err) {
         console.log("Error Occured in showing homepage: " + err);

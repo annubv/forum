@@ -13,8 +13,6 @@ const addforum = (req, res) => {
   const { heading, data } = req.body;
   var posts_instance = new posts({
     user_id: req.session.user.id,
-    user_name: req.session.user.name,
-    user_email: req.session.user.email,
     data,
     heading
   });
@@ -38,7 +36,7 @@ const forumdata = (req, res) => {
     .findOne()
     .where("_id")
     .equals(req.session.post.id)
-    .populate("posts")
+    .populate("user_id")
     .exec((err, postsresult) => {
       if (err) {
         console.log("Error occured in fetching post: " + err);
@@ -47,7 +45,7 @@ const forumdata = (req, res) => {
           .find()
           .where("post_id")
           .equals(req.session.post.id)
-          .populate("comments")
+          .populate("user_id")
           .exec((err, commentsresult) => {
             if (err) {
               console.log("Error occured in fetching comments: " + err);
@@ -57,7 +55,7 @@ const forumdata = (req, res) => {
                 .find()
                 .where("_id")
                 .equals(req.session.user.id)
-                .populate("user")
+                .populate("user_id")
                 .exec((err, userres) => {
                   if (err) {
                     console.log(
@@ -85,8 +83,6 @@ const addcomment = (req, res) => {
   console.log("Comment to be added: " + comdata);
   var comments_instance = new comments({
     user_id: req.session.user.id,
-    user_name: req.session.user.name,
-    user_email: req.session.user.email,
     post_id: req.session.post.id,
     data: comdata
   });
