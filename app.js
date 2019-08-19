@@ -20,6 +20,7 @@ const app = express();
 
 var mongoose = require("mongoose");
 var mongoDB =
+  process.env.MONGO ||
   "mongodb+srv://root0:root0pass@cluster0-cpolg.mongodb.net/forum_db?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.set("useFindAndModify", false);
