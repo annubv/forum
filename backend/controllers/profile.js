@@ -1,4 +1,5 @@
 const user = require("../database/models/user");
+const posts = require("../database/models/posts");
 
 const mainpage = (req, res) => {
   user
@@ -10,15 +11,27 @@ const mainpage = (req, res) => {
       if (err) {
         console.log("Error occured in signing in: " + err);
       } else {
-        console.log("Current profile: ", current_user);
-        const image_id = current_user.profileimage.id;
-        const image_url = current_user.profileimage.url;
-        res.render("profile", {
-          image_url,
-          image_id,
-          name: req.session.user.name,
-          email: req.session.user.email
-        });
+        posts
+          .find()
+          .where("user_id")
+          .equals(req.session.user.id)
+          .populate("user_id")
+          .exec((err, postsbyuser) => {
+            if (err) {
+              console.log("Error: ", err);
+            } else {
+              console.log("Current profile: ", current_user);
+              const image_id = current_user.profileimage.id;
+              const image_url = current_user.profileimage.url;
+              res.render("profile", {
+                forumdata: postsbyuser,
+                image_url,
+                image_id,
+                name: req.session.user.name,
+                email: req.session.user.email
+              });
+            }
+          });
       }
     });
 };
