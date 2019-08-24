@@ -105,27 +105,19 @@
               </button>
             </div>
           </div>
-          <form
-          
-            id="commentform"
-            method="POST"
-            action="/comment"
-            class="add-comment"
-          >
+           <div class="add-comment">
             <input
+              id = "comment"
               type="text"
               name="comdata"
-              form="commentform"
               placeholder="Write a comment"
             />
-            <input
-              type="submit"
-              value="Add Comment"
-              class="comment-btn"
-              form="commentform"
-            />
-          </form>
-          <div class="comment-section">
+
+            <button name="comments" id="comment" onclick="comment(`<%= pid %>`)">
+              Add Comment
+            </button>
+          </div> 
+          <div class="comment-section" id="comment-section">
 
             <%for(var j=0; j<comments.length; j++){%>
 
@@ -145,21 +137,6 @@
       Developed with <i class="fas fa-heart"></i> by
       <a href="https://github.com/annubv" target="_blank"> Anubhav</a>
     </footer>
-    <script>
-      var menu = document.getElementById("menu");
-      var nav = document.getElementById("nav");
-      var exit = document.getElementById("exit");
-      menu.addEventListener("click", e => {
-        nav.classList.toggle("hide-mobile");
-        e.preventDefault();
-      });
-      exit.addEventListener("click", e => {
-        nav.classList.toggle("hide-mobile");
-        e.preventDefault();
-      });
-      function blog(i) {
-        window.location = "/blog?id=" + i;
-      }
-    </script>
+    <script src="data.js"></script>
   </body>
 </html>

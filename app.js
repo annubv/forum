@@ -31,6 +31,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(express.static(__dirname + "/client/css"));
 app.use(express.static(__dirname + "/client/assets"));
+app.use(express.static(__dirname + "/client/js"));
 app.use(cors());
 app.use(compress());
 app.use(logger("dev"));

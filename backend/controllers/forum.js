@@ -79,12 +79,12 @@ const forumdata = (req, res) => {
 };
 
 const addcomment = (req, res) => {
-  const { comdata } = req.body;
-  console.log("Comment to be added: " + comdata);
+  const { value } = req.body;
+  console.log("Comment to be added: " + value);
   var comments_instance = new comments({
     user_id: req.session.user.id,
     post_id: req.session.post.id,
-    data: comdata
+    data: value
   });
   comments_instance.save(err => {
     if (err) {
@@ -105,7 +105,11 @@ const addcomment = (req, res) => {
                 { $inc: { comments: 1 } }
               )
               .then(() => {
-                return res.redirect("/comment");
+                let data = {
+                  comment: value,
+                  name: req.session.user.name
+                };
+                res.json(data);
               });
           }
         });

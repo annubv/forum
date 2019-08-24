@@ -6,6 +6,7 @@
   --light-text-color: #686868;
   --btn-bg: #4f7e65;
   --border-color: #1a1a1a;
+  --border-colorlight: #504f4f65;
   --link-hover: #eb515188;
 }
 
@@ -359,7 +360,7 @@ p {
   border: 1px solid transparent;
 }
 
-.content-container .forum-box .add-comment input[type="submit"] {
+.content-container .forum-box .add-comment button {
   color: var(--btn-bg);
   border: 1px solid var(--btn-bg);
   border-radius: 10px;
@@ -371,8 +372,8 @@ p {
   box-sizing: border-box;
 }
 
-.content-container .forum-box .add-comment input[type="submit"]:focus,
-.content-container .forum-box .add-comment input[type="submit"]:hover {
+.content-container .forum-box .add-comment button:focus,
+.content-container .forum-box .add-comment button:hover {
   outline: none;
   background-color: var(--btn-bg);
   color: var(--body-bg-color);
@@ -380,8 +381,9 @@ p {
 
 .content-container .forum-box .comment-section div {
   margin: 1rem 0rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-colorlight);
+  padding-bottom: 0.5rem;
+  border-bottom-style: ridge;
 }
 
 .content-container .forum-box .add-forum {
