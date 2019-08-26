@@ -34,8 +34,9 @@ router.route("/signin").get(middle.redirectprofile, alphacon.signin);
 router.route("/signup").get(middle.redirectprofile, alphacon.signup);
 router.route("/signout").get(middle.redirectsignin, signin.signout);
 router.route("/addforum").get(middle.redirectsignin, forum.addforumpage);
+router.route("/editforum").get(middle.redirectsignin, forum.editforumpage);
 router.route("/profile").get(middle.redirectsignin, profile.mainpage);
-router.route("/comment").get(forum.forumdata);
+router.route("/comment").get(middle.redirectsignin, forum.forumdata);
 
 router.route("/signin").post(signin.signinuser);
 router.route("/signup").post(signup.signupuser);
@@ -43,6 +44,7 @@ router.route("/addforum").post(forum.addforum);
 router.route("/comment").post(forum.addcomment);
 router.route("/like").post(forum.like);
 router.route("/dislike").post(forum.dislike);
+router.route("/editforum").post(forum.editforum);
 router.route("/dp").post(parser.single("image"), profile.imgupload);
 
 module.exports = router;

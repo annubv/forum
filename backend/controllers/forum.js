@@ -26,6 +26,38 @@ const addforum = (req, res) => {
   });
 };
 
+const editforumpage = (req, res) => {
+  const { pid } = req.query;
+  const name = req.session.user.name;
+  posts
+    .findOne()
+    .where("_id")
+    .equals(pid)
+    .populate("user_id")
+    .exec((err, result) => {
+      if (err) {
+        console.log("Error! ", err);
+        res.send(err);
+      } else {
+        console.log(result);
+        res.render("editforum", { name, result });
+      }
+    });
+};
+
+const editforum = (req, res) => {
+  const { heading, data, pid } = req.body;
+  posts.findOneAndUpdate(
+    { _id: pid },
+    { data, heading },
+    { upsert: false },
+    (err, doc) => {
+      if (err) return res.send(500, { error: err });
+      res.redirect("profile");
+    }
+  );
+};
+
 const forumdata = (req, res) => {
   const { pid } = req.query;
   if (pid) {
@@ -367,6 +399,8 @@ const dislike = (req, res) => {
 module.exports = {
   addforumpage,
   addforum,
+  editforumpage,
+  editforum,
   forumdata,
   addcomment,
   like,

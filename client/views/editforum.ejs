@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Chorus Forums</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Didact Gothic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="index-body">
+    <div class="content">
+      <header>
+        <div>
+          <a href="/">Chorus Forums</a>
+        </div>
+        <nav>
+          <a href="#" class="hide-desktop">
+            <i class="fas fa-bars" id="menu"></i>
+          </a>
+          <ul class="show-desktop hide-mobile" id="nav">
+            <li id="exit" class="exit-btn hide-desktop">
+              <button><i class="far fa-times-circle"></i></button>
+            </li>
+            <li><a href="/profile">Hello <%=name%>!</a></li>
+            <li><a href="/addforum">Post a new Forum</a></li>
+            <li><a href="/signout">Sign Out</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="content-container">
+        <div class="forum-box">
+          <div class="main-forum-head">
+            Edit Forum
+          </div>
+          <form
+            action="/editforum"
+            method="POST"
+            id="forumform"
+            class="add-forum"
+          >
+            <textarea
+              rows="1"
+              type="text"
+              name="heading"
+              id="heading"
+              form="forumform"
+              required
+            >
+<%=result.heading%></textarea
+            >
+
+            <textarea
+              rows="10"
+              type="text"
+              name="data"
+              id="data"
+              form="forumform"
+              required
+            >
+<%=result.data%></textarea
+            >
+
+            <input
+              type="submit"
+              name="pid"
+              value="<%=result._id%>"
+              form="forumform"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Developed with <i class="fas fa-heart"></i> by
+      <a href="https://github.com/annubv" target="_blank"> Anubhav</a>
+    </footer>
+    <script>
+      var menu = document.getElementById("menu");
+      var nav = document.getElementById("nav");
+      var exit = document.getElementById("exit");
+      menu.addEventListener("click", e => {
+        nav.classList.toggle("hide-mobile");
+        e.preventDefault();
+      });
+      exit.addEventListener("click", e => {
+        nav.classList.toggle("hide-mobile");
+        e.preventDefault();
+      });
+      function blog(i) {
+        window.location = "/blog?id=" + i;
+      }
+    </script>
+  </body>
+</html>

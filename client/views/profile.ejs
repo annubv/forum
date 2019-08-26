@@ -78,6 +78,7 @@
       </div>
       <div class="content-container">
         <form method="get" action="/comment" id="show_comments"></form>
+        <form method="get" action="/editforum" id="edit_forum"></form>
         <% for (var i = forumdata.length-1 ; i>=0; i--){%>
         <a href="/comment?pid=<%=forumdata[i]._id%>" class="phone-only">
           <div class="forum-card">
@@ -105,6 +106,25 @@
                   type="submit"
                 >
                   Read Full Story
+                </button>
+              </div>
+              <div class="edit">
+                <button
+                  form="edit_forum"
+                  class="forum-data-edit-btn"
+                  name="pid"
+                  value="<%=forumdata[i]._id%>"
+                  type="submit"
+                >
+                  <i class="far fa-edit"></i></button
+                ><button
+                  form="edit_forum"
+                  class="forum-data-edit-btn"
+                  name="pid"
+                  value="<%=forumdata[i]._id%>"
+                  type="submit"
+                >
+                  <i class="far fa-trash-alt"></i>
                 </button>
               </div>
             </div>

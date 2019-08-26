@@ -26,6 +26,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px var(--heading-text-color);
   -webkit-box-shadow: 0 0 0 30px var(--heading-text-color) inset !important;
 }
 
@@ -499,6 +500,27 @@ input[type="file"] {
   background-color: var(--btn-bg);
   color: var(--body-bg-color);
 }
+
+.content-container .forum-card .forum-container .edit .forum-data-edit-btn {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  pointer-events: all;
+}
+
+.content-container
+  .forum-card
+  .forum-container
+  .edit
+  .forum-data-edit-btn:hover {
+  color: var(--light-text-color);
+}
+
 /* profile section end */
 
 /* NavBar */
@@ -671,6 +693,11 @@ footer i {
 }
 
 @media only screen and (min-width: 470px) {
+  .content-container .forum-card .forum-container .edit .forum-data-edit-btn {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
   .content-container .forum-box .main-forum-poster {
     font-size: 1rem;
   }
