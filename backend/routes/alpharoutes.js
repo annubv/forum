@@ -44,7 +44,8 @@ router.route("/addforum").post(forum.addforum);
 router.route("/comment").post(forum.addcomment);
 router.route("/like").post(forum.like);
 router.route("/dislike").post(forum.dislike);
-router.route("/editforum").post(forum.editforum);
+router.route("/editforum/:pid").post(forum.editforum);
+router.route("/deleteforum").post(forum.deleteforum);
 router.route("/dp").post(parser.single("image"), profile.imgupload);
 
 module.exports = router;

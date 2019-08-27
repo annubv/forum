@@ -47,7 +47,7 @@
             Edit Forum
           </div>
           <form
-            action="/editforum"
+            action="/editforum/<%=result._id%>"
             method="POST"
             id="forumform"
             class="add-forum"
@@ -74,12 +74,7 @@
 <%=result.data%></textarea
             >
 
-            <input
-              type="submit"
-              name="pid"
-              value="<%=result._id%>"
-              form="forumform"
-            />
+            <input type="submit" form="forumform" />
           </form>
         </div>
       </div>

@@ -46,16 +46,40 @@ const editforumpage = (req, res) => {
 };
 
 const editforum = (req, res) => {
-  const { heading, data, pid } = req.body;
+  const pid = req.params.pid;
+  const { heading, data } = req.body;
   posts.findOneAndUpdate(
     { _id: pid },
     { data, heading },
     { upsert: false },
     (err, doc) => {
       if (err) return res.send(500, { error: err });
-      res.redirect("profile");
+      res.redirect("/profile");
     }
   );
+};
+
+const deleteforum = (req, res) => {
+  posts
+    .findByIdAndRemove(req.body.pid)
+    .then(note => {
+      if (!note) {
+        return res.status(404).send({
+          message: "Note not found with id " + req.body.pid
+        });
+      }
+      res.redirect("profile");
+    })
+    .catch(err => {
+      if (err.kind === "ObjectId" || err.name === "NotFound") {
+        return res.status(404).send({
+          message: "Note not found with id " + req.body.pid
+        });
+      }
+      return res.status(500).send({
+        message: "Could not delete note with id " + req.body.pid
+      });
+    });
 };
 
 const forumdata = (req, res) => {
@@ -401,6 +425,7 @@ module.exports = {
   addforum,
   editforumpage,
   editforum,
+  deleteforum,
   forumdata,
   addcomment,
   like,

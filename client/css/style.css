@@ -457,6 +457,7 @@ p {
   color: var(--light-text-color);
   padding: 0.5rem 0;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 input[type="file"] {
@@ -519,6 +520,12 @@ input[type="file"] {
   .edit
   .forum-data-edit-btn:hover {
   color: var(--light-text-color);
+}
+
+.imgbg1 {
+  background: radial-gradient(transparent, #8a8a8a67, #969696f1),
+    url("mount.jpg");
+  background-size: cover;
 }
 
 /* profile section end */
