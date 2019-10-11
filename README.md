@@ -1,4 +1,4 @@
 # Chorus- Forum
 A forum sharing website built using technologies like NodeJS, ExpressJS, Express Sessions and MonogDB.
 
-![Screenshot](https://imgur.com/a/btD95xF)
+![](https://i.imgur.com/0scvcaB.png)
