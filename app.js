@@ -1,5 +1,6 @@
 /* Required Modules */
 
+require("dotenv").config();
 const express = require("express");
 const bp = require("body-parser");
 const compress = require("compression");
@@ -7,7 +8,6 @@ const logger = require("morgan");
 const cors = require("cors");
 const ejs = require("ejs");
 const session = require("express-session");
-require("dotenv").config();
 
 /* Routes directory */
 
